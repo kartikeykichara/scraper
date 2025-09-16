@@ -12,15 +12,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
-# ------------------ CONFIG ------------------
+
 OUTPUT_DIR = Path("cricket_scrape_output")
 OUTPUT_DIR.mkdir(exist_ok=True)
 JSON_FILE = OUTPUT_DIR / "commentary.json"
 MATCHES_FILE = OUTPUT_DIR / "matches.json"
 
-POLL_INTERVAL = 20     # seconds between checks
-TIMEOUT = 20           # selenium wait timeout
-# ---------------------------------------------
+POLL_INTERVAL = 20     
+TIMEOUT = 20           
+
 
 def make_driver(headless=True):
     chrome_options = Options()
@@ -39,7 +39,7 @@ def get_matches_list(driver):
     matches = {"LIVE": [], "UPCOMING": [], "COMPLETED": []}
 
     try:
-        # All match cards (LIVE + COMPLETED)
+      
         cards = wait.until(EC.presence_of_all_elements_located(
             (By.CSS_SELECTOR, "div.ds-px-4.ds-py-3")
         ))
@@ -59,7 +59,7 @@ def get_matches_list(driver):
             except Exception:
                 continue
 
-        # Sometimes upcoming matches are in a separate container
+      
         try:
             upcoming_cards = driver.find_elements(By.CSS_SELECTOR, "div.ds-p-4")
             for c in upcoming_cards:
@@ -77,11 +77,11 @@ def get_matches_list(driver):
     except Exception as e:
         print(f"⚠️ Could not fetch matches: {e}")
 
-    # Save matches to file
+   
     with open(MATCHES_FILE, "w", encoding="utf-8") as f:
         json.dump(matches, f, ensure_ascii=False, indent=2)
 
-    # Console output
+    
     for k, v in matches.items():
         print(f"\n=== {k} MATCHES ({len(v)}) ===")
         for m in v:
@@ -95,8 +95,8 @@ def scrape_commentary(driver):
     commentary_texts = []
 
     possible_selectors = [
-        "div.ds-p-3",       # latest Cricinfo layout container
-        "div.ds-text-typo", # fallback older layout
+        "div.ds-p-3",       
+        "div.ds-text-typo", 
     ]
 
     for sel in possible_selectors:
@@ -136,7 +136,7 @@ def main(headless=False):
             print("❌ No matches found! Exiting.")
             return
 
-        # Prefer live, else completed
+        
         match = None
         if matches["LIVE"]:
             match = matches["LIVE"][0]
@@ -150,7 +150,7 @@ def main(headless=False):
         driver.get(match["url"])
         match_title = driver.title
 
-        # Save screenshot once only
+    
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         driver.save_screenshot(str(OUTPUT_DIR / f"commentary_{ts}.png"))
 
