@@ -23,19 +23,19 @@ def scrape_matches():
             match_id = m.group(1)
             cls_text = " ".join(a.get("class", [])).lower()
 
-            # 1️⃣ Live match detection
+            # 1 Live match detection
             if "live" in cls_text or re.search(r"trail by|start delayed|Rain stop|Day \d+", text, re.I):
                 matches["live"].append({"name": text, "id": match_id, "link": BASE + href})
-            # 2️⃣ Completed match detection
+            # 2 Completed match detection
             elif re.search(r"won by|lead by|innings|overs|all out", text, re.I):
                 matches["completed"].append({"name": text, "id": match_id, "link": BASE + href})
-            # 3️⃣ Upcoming fallback
+            # 3️ Upcoming fallback
             else:
                 matches["upcoming"].append({"name": text, "id": match_id, "link": BASE + href})
 
         return matches
     except Exception as e:
-        print("⚠️ Error scraping matches:", e)
+        print(" Error scraping matches:", e)
         return {"live": [], "upcoming": [], "completed": []}
 
 def save_json(data, path):
@@ -61,7 +61,7 @@ def fetch_commentary(match_id):
                 })
         return new_data
     except Exception as e:
-        print("⚠️ Error fetching commentary:", e)
+        print(" Error fetching commentary:", e)
         return []
 
 # -----------------------------
@@ -70,7 +70,7 @@ if __name__ == "__main__":
     save_json(matches, MATCHES_FILE)
 
     idx_map, idx = {}, 1
-    print("\n📌 Matches:")
+    print("\n Matches:")
     for cat in ["live", "upcoming", "completed"]:
         print(f"\n=== {cat.upper()} ===")
         for m in matches[cat]:
@@ -78,10 +78,10 @@ if __name__ == "__main__":
             idx_map[idx] = m["id"]; idx += 1
 
     try:
-        choice = int(input("\n👉 Enter match number to track commentary: "))
+        choice = int(input("\n Enter match number to track commentary: "))
         match_id = idx_map[choice]
     except:
-        print("❌ Invalid choice."); exit()
+        print(" Invalid choice."); exit()
 
     output_file = OUTPUT_DIR / f"match_{match_id}_commentary.json"
     while True:
@@ -90,7 +90,7 @@ if __name__ == "__main__":
             old = json.loads(output_file.read_text(encoding="utf-8")) if output_file.exists() else []
             old.extend(new_entries)
             save_json(old, output_file)
-            print(f"[{datetime.now().strftime('%H:%M:%S')}] ✅ {len(new_entries)} new entries saved")
+            print(f"[{datetime.now().strftime('%H:%M:%S')}] {len(new_entries)} new entries saved")
         else:
             print(f"[{datetime.now().strftime('%H:%M:%S')}] No new commentary yet...")
         time.sleep(30)
