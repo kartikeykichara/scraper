@@ -1,72 +1,11 @@
 {
-  "live": [
-    {
-      "name": "YORK.. 194 SUS 112-4 Day 3: 1st Session - Sussex trail by 82 runs",
-      "id": "113235",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113235/yorks-vs-sus-63rd-match-county-championship-division-one-2025"
-    },
-    {
-      "name": "ESS 325-5 WARK.. Day 3: Start delayed due to wet outfield",
-      "id": "113226",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113226/ess-vs-warks-61st-match-county-championship-division-one-2025"
-    },
-    {
-      "name": "NOTT.. 231 & 219-8 SUR 173 Day 3: Lunch Break - Nottinghamshire lead by 277 runs",
-      "id": "113244",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113244/notts-vs-sur-64th-match-county-championship-division-one-2025"
-    },
-    {
-      "name": "WORC.. 320-5 DUR Day 3: Start delayed due to wet outfield",
-      "id": "113229",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113229/worcs-vs-dur-62nd-match-county-championship-division-one-2025"
-    },
-    {
-      "name": "SOM 454-8 HAM 59-4 Day 3: 1st Session - Hampshire trail by 395 runs",
-      "id": "113253",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113253/som-vs-ham-65th-match-county-championship-division-one-2025"
-    },
-    {
-      "name": "NZA 482 & 205-2 RSAA 578-8 Day 4: 2nd Session - New Zealand A lead by 109 runs",
-      "id": "116498",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/116498/nza-vs-rsaa-2nd-unofficial-test-new-zealand-a-tour-of-south-africa-2025"
-    },
-    {
-      "name": "LEIC 459-7 KENT 17-0 Day 3: Start delayed due to wet outfield - Kent trail by 442 runs",
-      "id": "113631",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113631/leic-vs-kent-49th-match-county-championship-division-two-2025"
-    },
-    {
-      "name": "GLAM 259 DERB.. 17-0 Day 3: Rain stop play - Derbyshire trail by 242 runs",
-      "id": "113649",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113649/glam-vs-derby-52nd-match-county-championship-division-two-2025"
-    },
-    {
-      "name": "MDX 189-8 LANC.. Day 3: Rain stop play",
-      "id": "113634",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113634/mdx-vs-lancs-50th-match-county-championship-division-two-2025"
-    },
-    {
-      "name": "NHNT.. 206 GLOU.. 158-5 Day 3: Rain stop play - Gloucestershire trail by 48 runs",
-      "id": "113640",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/113640/nhnts-vs-gloucs-51st-match-county-championship-division-two-2025"
-    },
-    {
-      "name": "AUSA 532-6 INDA 116-1 Day 2: Stumps - India A trail by 416 runs",
-      "id": "119843",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/119843/ausa-vs-inda-1st-unofficial-test-australia-a-tour-of-india-2025"
-    },
-    {
-      "name": "INDW 290-9 (49.3 Ovs) AUSW Australia Women opt to bowl",
-      "id": "119825",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/119825/indw-vs-ausw-2nd-odi-australia-women-tour-of-india-2025"
-    }
-  ],
+  "live": [],
   "upcoming": [],
   "completed": [
     {
-      "name": "QL 310-5 (50 Ovs) VIC 255 (46.2 Ovs) Queensland won by 55 runs",
-      "id": "133462",
-      "link": "https://www.cricbuzz.com/live-cricket-scores/133462/ql-vs-vic-2nd-match-australia-domestic-one-day-cup-2025-26"
+      "name": "HKW 146-4 (20 Ovs) MGLW 87-5 (20 Ovs) Hong Kong Women won by 59 runs",
+      "id": "134991",
+      "link": "https://www.cricbuzz.com/live-cricket-scores/134991/hkw-vs-mglw-3rd-match-womens-t20i-quadrangular-series-in-china-2025"
     }
   ]
 }

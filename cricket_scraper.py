@@ -24,14 +24,26 @@ def scrape_matches():
             cls_text = " ".join(a.get("class", [])).lower()
 
             # 1 Live match detection
-            if "live" in cls_text or re.search(r"trail by|start delayed|Rain stop|Day \d+", text, re.I):
+            # if "live" in cls_text or re.search(r"trail by|start delayed|Rain stop|Day \d+", text, re.I):
+            #     matches["live"].append({"name": text, "id": match_id, "link": BASE + href})
+            # # 2 Completed match detection
+            # elif re.search(r"won by|lead by|innings|overs|all out", text, re.I):
+            #     matches["completed"].append({"name": text, "id": match_id, "link": BASE + href})
+            # # 3️ Upcoming fallback
+            # else:
+            #     matches["upcoming"].append({"name": text, "id": match_id, "link": BASE + href})
+            # 1 Live match detection
+            if "live" in cls_text or re.search(r"trail by|start delayed|Rain stop|Day \d+|Stumps|opt to bat|opt to bowl", text, re.I):
                 matches["live"].append({"name": text, "id": match_id, "link": BASE + href})
-            # 2 Completed match detection
-            elif re.search(r"won by|lead by|innings|overs|all out", text, re.I):
+
+            # 2 Completed match detection (only final results)
+            elif re.search(r"won by|Match tied|abandoned|No result", text, re.I):
                 matches["completed"].append({"name": text, "id": match_id, "link": BASE + href})
-            # 3️ Upcoming fallback
+
+            # 3 Upcoming fallback
             else:
                 matches["upcoming"].append({"name": text, "id": match_id, "link": BASE + href})
+
 
         return matches
     except Exception as e:
@@ -94,3 +106,4 @@ if __name__ == "__main__":
         else:
             print(f"[{datetime.now().strftime('%H:%M:%S')}] No new commentary yet...")
         time.sleep(30)
+    
